@@ -97,28 +97,56 @@ The codebase is built on top of [Deformable DETR](https://github.com/fundamental
 
 ### Dataset Preparation
 
-1. Download the ILSVRC2015 DET and ILSVRC2015 VID datasets from
-   [here](https://image-net.org/challenges/LSVRC/2015/2015-downloads), then
-   convert the two datasets to JSON using the
-   [MMTracking tools](https://github.com/open-mmlab/mmtracking/blob/master/tools/convert_datasets/ilsvrc/).
+M2TDiff is evaluated on two widely used video object detection benchmarks:
+**ImageNet VID** and **VisDrone-VID**.
 
-   The joint
-   [JSON](https://drive.google.com/drive/folders/1cCXY41IFsLT-P06xlPAGptG7sc-zmGKF?usp=sharing)
-   of the two datasets is provided. We recommend symlinking the dataset path
-   to `datasets/`; the expected layout is:
+#### ImageNet VID
+
+Download the ILSVRC2015 DET and ILSVRC2015 VID datasets from
+[the official website](https://image-net.org/challenges/LSVRC/2015/2015-downloads),
+and convert the annotations to JSON format using the
+[MMTracking tools](https://github.com/open-mmlab/mmtracking/blob/master/tools/convert_datasets/ilsvrc/).
+
+The expected directory structure is:
 
 ```text
 code_root/
-└── data/
-    └── vid/
-        ├── Data
-        │   ├── VID/
-        │   └── DET/
+└── datasets/
+    └── imagenet_vid/
+        ├── Data/
+        │   └── VID/
+        │       ├── train/
+        │       └── val/
+        │
         └── annotations/
             ├── imagenet_vid_train.json
-            ├── imagenet_vid_train_joint_30.json
             └── imagenet_vid_val.json
 ```
+
+#### VisDrone-VID
+
+Download the VisDrone-VID dataset from the
+[official VisDrone website](https://github.com/VisDrone/VisDrone-Dataset)
+and organize the dataset according to the following structure:
+
+```text
+code_root/
+└── datasets/
+    └── visdrone_vid/
+        ├── Data/
+        │   └── sequences/
+        │       ├── train/
+        │       └── val/
+        │
+        └── annotations/
+            ├── visdrone_vid_train.json
+            └── visdrone_vid_val.json
+```
+
+After downloading and processing the datasets, make sure that the directory
+structure matches the layouts shown above. We recommend using symbolic links
+to place the datasets under the `datasets/` directory.
+
 
 ### Pretraining the Single-Frame Baseline
 
