@@ -1,7 +1,6 @@
 # M2TDiff: Multi-Scale MoE-Enhanced Transformer Diffusion Network for Video Object Detection
 
-This repository is the official implementation of **M2TDiff** (base model)
-paper (IEEE TPAMI, **[paper link to be added]**).
+This repository is the official implementation of **M2TDiff**.
 
 M2TDiff is an end-to-end video object detection framework built on top of
 [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR).
