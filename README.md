@@ -2,7 +2,7 @@
 
 This repository is the official implementation of **M2TDiff**.
 
-<div align="center"> <img src="assets/images/m2tdiff_framework.png" alt="M2TDiff Framework" width="100%"> </div>
+<div align="center"> <img src="assets/m2tdiff_framework.png" alt="M2TDiff Framework" width="100%"> </div>
 
 ## Abstract
 
