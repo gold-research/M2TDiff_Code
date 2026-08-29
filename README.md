@@ -6,8 +6,7 @@ M2TDiff is an end-to-end video object detection framework built on top of
 [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR).
 It addresses three limitations of DETR-based video object detectors:
 **frame-agnostic query initialization, scale-agnostic attention, and
-heterogeneity-agnostic decoder transformation**, with three plug-and-play
-modules:
+heterogeneity-agnostic decoder transformation**, with three modules:
 
 1. **RDQG (Reinforcement-Guided Diffusion Query Generator)** — casts
    current-frame query localization as a conditional diffusion denoising task:
