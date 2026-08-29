@@ -214,21 +214,27 @@ for releasing their code:
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{m2tdiff,
-  title   = {M2TDiff: Multi-Scale MoE-Enhanced Transformer Diffusion Network for Video Object Detection},
-  author  = {TODO},
-  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year    = {2026}
+@inproceedings{qi2025tgbformer,
+  title={TGBFormer: Transformer-graphformer blender network for video object detection},
+  author={Qi, Qiang and Wang, Xiao},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={6},
+  pages={6559--6567},
+  year={2025}
 }
 ```
 
 And the base work:
 
 ```bibtex
-@inproceedings{zhu2021deformable,
-  title     = {Deformable DETR: Deformable Transformers for End-to-End Object Detection},
-  author    = {Zhu, Xizhou and Su, Weijie and Lu, Lewei and Li, Bin and Wang, Xiaogang and Dai, Jifeng},
-  booktitle = {International Conference on Learning Representations (ICLR)},
-  year      = {2021}
+@inproceedings{qi2026mstdiff,
+  title={MSTDiff: Multiscale-Aware Transformer Diffusion Network for Video Object Detection},
+  author={Qi, Qiang and Shang, Wenqi and Wang, Xiao and Liang, Yanjie and Lin, Shuyuan},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  number={10},
+  pages={8475--8483},
+  year={2026}
 }
 ```
