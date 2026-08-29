@@ -2,37 +2,29 @@
 
 This repository is the official implementation of **M2TDiff**.
 
-M2TDiff is an end-to-end video object detection framework built on top of
-[Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR).
-It addresses three limitations of DETR-based video object detectors:
-**frame-agnostic query initialization, scale-agnostic attention, and
-heterogeneity-agnostic decoder transformation**, with three modules:
+<div align="center"> <img src="assets/images/m2tdiff_framework.png" alt="M2TDiff Framework" width="100%"> </div>
 
-1. **RDQG (Reinforcement-Guided Diffusion Query Generator)** — casts
-   current-frame query localization as a conditional diffusion denoising task:
-   forward diffusion adds Gaussian noise to the GT boxes, and multi-trajectory
-   (K trajectories) reverse diffusion guided by a reinforcement-learning-style
-   contrastive ranking loss generates content-aware object queries. Inference
-   runs a single reverse trajectory (K=1) from random noise boxes
-   (`models/rdqg.py`, `models/rdqg_loss.py`).
+Abstract
 
-2. **MGTE (Multi-Scale Graph Interaction Transformer Encoder)** — augments the
-   multi-head deformable attention path of each encoder layer with a
-   Multi-Scale Dynamic Graph Convolution (MS-DGC) branch over multi-scale
-   k-NN graphs (1-NN + 10-NN by default), jointly modeling local structure and
-   global context (`models/mgte.py`).
+Video object detection is a pivotal yet challenging task in computer vision.
+In recent years, DETR-based methods have gained prominence in this domain
+owing to their powerful global modeling capability. However, these methods
+are usually confronted with three crucial limitations: frame-agnostic object
+query initialization, scale-agnostic attention mechanism, and
+heterogeneity-agnostic feature transformation, which hinder their capability
+to capture dynamic appearance variations and model cross-frame temporal
+dependencies.
 
-3. **SMTD (Sparsely-Gated Mixture-of-Experts Transformer Decoder)** — a
-   Query-aware MoE Block (QMB) with Top-1 sparse routing replaces the FFN in
-   each decoder layer, keeping FLOPs roughly on par with the baseline while
-   scaling decoder capacity (`models/smtd.py`).
-
-All modules are **optional** and disabled by default — setting
-`--use_rdqg / --use_mgte / --use_smtd` turns each module on. With all flags
-off, the code reproduces a plain DETR-based multi-frame video baseline exactly.
-
-Detailed model design, training recipes, and ablations are described in
-[`M2TDiff_base_model.md`](M2TDiff_base_model.md).
+To alleviate these limitations, we propose a novel Multi-scale
+MoE-enhanced Transformer Diffusion (M2TDiff) network for video object
+detection. M2TDiff introduces three core components: a Reinforcement-Guided
+Diffusion Query Generator (RDQG) for generating adaptive and content-aware
+object queries, a Multi-Scale Graph Interaction Transformer Encoder (MGTE)
+for capturing multi-scale local and global contextual dependencies, and a
+Sparsely-Gated Mixture-of-Experts Transformer Decoder (SMTD) for
+query-specific feature transformation. Extensive experiments on the
+ImageNet VID dataset demonstrate that M2TDiff achieves state-of-the-art
+performance while maintaining a favorable accuracy-efficiency trade-off.
 
 ## Main Results
 
