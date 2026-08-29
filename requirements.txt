@@ -1,0 +1,14 @@
+# Core deep-learning stack.
+# Install torch/torchvision from https://pytorch.org/get-started
+# (the deformable-attention op is compiled against your local CUDA/PyTorch,
+#  see models/ops/make.sh). torch>=1.5.1 + torchvision>=0.6.1 recommended.
+torch>=1.5.1
+torchvision>=0.6.1
+numpy
+opencv-python
+Pillow
+pycocotools
+tqdm
+cython
+scipy
+matplotlib
