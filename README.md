@@ -4,27 +4,40 @@ This repository is the official implementation of **M2TDiff**.
 
 <div align="center"> <img src="assets/images/m2tdiff_framework.png" alt="M2TDiff Framework" width="100%"> </div>
 
-Abstract
+## Abstract
 
-Video object detection is a pivotal yet challenging task in computer vision.
-In recent years, DETR-based methods have gained prominence in this domain
-owing to their powerful global modeling capability. However, these methods
-are usually confronted with three crucial limitations: frame-agnostic object
-query initialization, scale-agnostic attention mechanism, and
-heterogeneity-agnostic feature transformation, which hinder their capability
-to capture dynamic appearance variations and model cross-frame temporal
-dependencies.
-
-To alleviate these limitations, we propose a novel Multi-scale
-MoE-enhanced Transformer Diffusion (M2TDiff) network for video object
-detection. M2TDiff introduces three core components: a Reinforcement-Guided
-Diffusion Query Generator (RDQG) for generating adaptive and content-aware
-object queries, a Multi-Scale Graph Interaction Transformer Encoder (MGTE)
-for capturing multi-scale local and global contextual dependencies, and a
-Sparsely-Gated Mixture-of-Experts Transformer Decoder (SMTD) for
-query-specific feature transformation. Extensive experiments on the
-ImageNet VID dataset demonstrate that M2TDiff achieves state-of-the-art
-performance while maintaining a favorable accuracy-efficiency trade-off.
+Video object detection is a pivotal yet challenging
+task in computer vision. In recent years, DETR-based methods
+have gained prominence in this domain owing to their powerful
+global modeling capability. However, these methods are usually
+confronted with three crucial limitations: frame-agnostic object query initialization, scale-agnostic attention mechanism and
+heterogeneity-agnostic feature transformation, which hinder their
+capability to capture dynamic appearance variations and model
+cross-frame temporal dependencies. To alleviate these limitations,
+we propose a novel Multi-scale MoE-enhanced Transformer
+Diffusion (M2TDiff) network for video object detection, including
+three core technical improvements over existing methods. First,
+we introduce a reinforcement-guided diffusion query generator,
+which models the object query distribution through an iterative
+diffusion process conditioned on the input frames and optimized
+using a multi-trajectory reinforcement learning strategy, generating adaptive and content-aware object queries. Second, we design
+a multi-scale graph interaction transformer encoder, which combines multi-head attention mechanisms with multi-scale dynamic
+graph convolutions to learn scale-aware feature representations
+while jointly modeling local and global contextual dependencies.
+Third, we develop a sparsely-gated mixture-of-experts transformer decoder, which dynamically routes heterogeneous object
+queries to specialized experts through sparse gating, enabling
+query-specific representation learning. Furthermore, we present
+two variants of M2TDiff, termed M2TDiff++ and M2TDiff-Fast,
+which further improve detection accuracy by exploring more
+diverse spatial-temporal cues and accelerate inference speed via
+a differentiated keyframe/non-keyframe processing strategy. We
+conduct experiments on the ImageNet VID and VisDrone-VID
+datasets and the results show that M2TDiff achieves state-of-theart performance with a favorable accuracy-efficiency trade-off,
+while its two variants further extend this frontier toward higher
+accuracy and faster inference, respectively. Particularly, on the
+ImageNet VID dataset, M2TDiff achieves 89.2% mAP at 45.2
+FPS on a single 5090 GPU, M2TDiff++ reaches 94.1% mAP, and
+M2TDiff-Fast obtains 88.5% mAP at 53.8 FPS.
 
 ## Main Results
 
