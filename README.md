@@ -191,22 +191,6 @@ SCAN=M   ./tools/scan.sh               # window M in {10,20,30}
 python tools/parse_logs.py exps/m2tdiff --out docs/experiments.md
 ```
 
-## New Modules in This Repository
-
-| File                                     | Description                                                                                                   |
-| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
-| `models/rdqg.py`                         | RDQG: reinforcement-guided diffusion query generator (multi-trajectory training, single-trajectory inference) |
-| `models/rdqg_loss.py`                    | SimpleDiffusionLoss (`L_simple`) + ContrastiveRLLoss (`L_C`) + RewardComputer                                 |
-| `models/mgte.py`                         | MGTE: multi-scale graph interaction transformer encoder (MS-DGC branch)                                       |
-| `models/smtd.py`                         | SMTD: GateNetwork / ExpertFFN / QMB / LoadBalanceLoss                                                         |
-| `models/deformable_detr_multi.py`        | Multi-frame detector: RDQG / MGTE / SMTD integration and criterion extensions                                 |
-| `models/deformable_transformer_multi.py` | Temporal transformer: QMB routing and route-info collection                                                   |
-| `tools/eval_m2tdiff.sh`                  | Evaluation + throughput measurement (ms/frame, FPS)                                                           |
-| `tools/ablation.sh`                      | A0~A6 ablation matrix                                                                                         |
-| `tools/scan.sh`                          | Single-variable hyperparameter scan                                                                           |
-| `tools/parse_logs.py`                    | Aggregate evaluation summaries to `docs/experiments.md`                                                       |
-| `configs/r101_train_m2tdiff.sh`          | M2TDiff training recipe                                                                                       |
-
 ## Acknowledgement
 
 This project is developed based on the following project. We thank the authors
