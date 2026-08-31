@@ -197,27 +197,7 @@ variables:
 USE_RDQG=0 USE_MGTE=0 USE_SMTD=0 ./tools/eval_m2tdiff.sh exps/m2tdiff/r101_A0_baseline
 ```
 
-### Ablation Matrix & Hyperparameter Scan
 
-```bash
-# A0~A6 ablation matrix (train + evaluate each variant; A0 is the baseline anchor)
-EPOCHS=15 ./tools/ablation.sh
-EPOCHS=50 ./tools/ablation.sh
-
-# Run a single experiment
-./tools/ablation.sh A6
-
-# Single-variable scan over T / K / knn / L / Y / M
-SCAN=T   ./tools/scan.sh               # diffusion steps T in {2,4,6}
-SCAN=K   ./tools/scan.sh               # trajectories K in {1,3,5,7}
-SCAN=knn ./tools/scan.sh               # knn_k in {1,10,11,21}
-SCAN=L   ./tools/scan.sh               # graph layers L in {1,2,3}
-SCAN=Y   ./tools/scan.sh               # experts Y in {2,4,8}
-SCAN=M   ./tools/scan.sh               # window M in {10,20,30}
-
-# Aggregate every eval_*.json into a Markdown table
-python tools/parse_logs.py exps/m2tdiff --out docs/experiments.md
-```
 
 ## Acknowledgement
 
